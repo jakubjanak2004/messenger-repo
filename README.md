@@ -1,7 +1,6 @@
 # Messenger Application
 
-Dome plain descriptionin plain text.
-More description.
+Here is a Repo for my Messenger application for a ZWA.
 
 ## Sub header
 
