@@ -1,6 +1,7 @@
 # Messenger Application
 
 Here is a Repo for my Messenger application for a ZWA.
+Usage of the web application is explained on this page. For more information about the code used check the [Automatically generated documentation](https://zwa.toad.cz/~janakja5/Semestralka/docs/api/)
 
 ## Important Links:
 
