@@ -7,7 +7,7 @@ Here is a Repo for my Messenger application for a ZWA.
 - Hosted Application: [ZWA Server Link](https://zwa.toad.cz/~janakja5/Semestralka/login.php)
 - Automatically generated documentation: [ZWA Documentation Link](https://zwa.toad.cz/~janakja5/Semestralka/docs/api/)
 
-### Creating an account
+## Creating an account
 
 When you dont have an account you are automatically redirected to the login.php page.
 
@@ -33,6 +33,8 @@ If the loggin process is not succesfull you wil get information that username or
 We cannot state if one or the other is  wrong for security reasons.
 
 If the loggin process succeeeded you will be redirected to the chats page
+
+## Using an logged acount
 
 #### Chats page
 
