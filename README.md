@@ -1,4 +1,4 @@
-# Demo
+# Messenger Application
 
 Dome plain descriptionin plain text.
 More description.
