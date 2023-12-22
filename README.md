@@ -5,12 +5,12 @@ Usage of the web application is explained on this page.
 
 Code is also saved in Semestralka folder in the box above.
 
-For more information about the code used check the [Automatically generated documentation](https://zwa.toad.cz/~janakja5/Semestralka/docs/api/)
+For more information about the code used check the [Automatically generated documentation](https://zwa.toad.cz/~janakja5/Semestralka/docs/api/){:target="_blank" rel="noopener"}
 
 ## Important Links:
 
-- Hosted Application: [ZWA Server Link](https://zwa.toad.cz/~janakja5/Semestralka/login.php)
-- Automatically generated documentation: [ZWA Documentation Link](https://zwa.toad.cz/~janakja5/Semestralka/docs/api/)
+- Hosted Application: [ZWA Server Link](https://zwa.toad.cz/~janakja5/Semestralka/login.php){:target="_blank" rel="noopener"}
+- Automatically generated documentation: [ZWA Documentation Link](https://zwa.toad.cz/~janakja5/Semestralka/docs/api/){:target="_blank" rel="noopener"}
 
 ## Creating an account
 
