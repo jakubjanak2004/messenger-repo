@@ -11,3 +11,5 @@ For more information about the code used check the [Automatically generated docu
 
 - Hosted Application: [ZWA Server Link](https://zwa.toad.cz/~janakja5/Semestralka/login.php)
 - Automatically generated documentation: [ZWA Documentation Link](https://zwa.toad.cz/~janakja5/Semestralka/docs/api/)
+- Programmer Documentation: [Programmer documentation][]
+- Product Documentation [Product Documentation][]
