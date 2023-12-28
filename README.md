@@ -37,9 +37,17 @@ This are the individual inputs and their requirements:
 - password has to be at least 8 characters long
 - password repeat and password has to be the same, checked by the JS and server side logic
 
+![Passwords check Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%206.04.13%E2%80%AFPM.png)
+
+Password are always asynchronously checked against each other and when are not the same the input label changes background to red
+
 When you create an account you are immediatelly redirected to the Chats page.
 
 If there is an error with the signup process you will be warned with error messages just below the form.
+
+![Signup Error Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%206.04.30%E2%80%AFPM.png)
+
+Above is a immage of the signup form not being successfull as the user with the signu email already exists.
 
 ### Login Page
 
@@ -53,8 +61,10 @@ Here is a list of inputs with their criteria:
 - Email is the email you used to sign up
 - Password is the password you used in sign up stage
 
+![Login Page Error Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%206.03.52%E2%80%AFPM.png)
+
 If the loggin process is not succesfull you wil get information that username or password is wrong.
-We cannot state if one or the other is  wrong for security reasons.
+We cannot state if one or the other is  wrong for security reasons. Please check the email and password you entered.
 
 If the loggin process succeeeded you will be redirected to the chats page.
 
@@ -67,7 +77,7 @@ If the loggin process succeeeded you will be redirected to the chats page.
 In the chats page you can see all the users that use the messener application,
 if there is more than 10 user paging is being applied.
 
-If you cannost see the user you wanna find and there are lost of them,
+If you cannot see the user you wanna find and there are lost of them,
 zou can use the search bar and look for certain user. If found all users with searched phrase will appear on the chats page.
 
 When you want to send message you have to select the user orherwise the message wont be sent.
