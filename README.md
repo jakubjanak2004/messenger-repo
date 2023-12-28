@@ -49,6 +49,8 @@ To use the login page you need to have an account, created in signup page.
 
 #### Chats page
 
+![Chats Page Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%205.32.06%E2%80%AFPM.png)
+
 In the chats page you can list thrue all users with profiles created in our application.
 
 You can even search for the specific user by username.
@@ -59,12 +61,16 @@ You can even delete message if it was created by you.
 
 #### Remove Message Page
 
+![Chats Page Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%205.32.06%E2%80%AFPM.png)
+
 If message is clicked and it belongs to you, you are redirected to the remove messages page.
 
 Thee you can decide if you want to delete the message selected, 
 after that you are immediatelly redirected to the chats page
 
 #### Settings Page
+
+![Chats Page Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%205.32.13%E2%80%AFPM.png)
 
 If you want to change something about your profile you ca do it on the settings page.
 
