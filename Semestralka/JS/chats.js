@@ -3,7 +3,7 @@
  * JS has its own paging
  */
 if (!window.location.search.includes("user_p=none")) {
-  console.log(window.location.replace("chats.php?user_p=none"));
+  window.location.replace("chats.php?user_p=none");
 }
 
 /**

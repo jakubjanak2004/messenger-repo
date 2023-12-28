@@ -58,8 +58,8 @@ foreach ($allUsers as $key => $value) {
     if ($user->getUserPic($value['email'])) {
         $userPic = $user->getUserPic($value['email']);
     }
-    $userEmailChars = htmlspecialchars($userEmail);
-    $nameOfUserChars = htmlspecialchars($nameOfUser);
+    $userEmailChars = $userEmail;
+    $nameOfUserChars = $nameOfUser;
 
     $outputArray = ["email" => $userEmailChars, "username" => $nameOfUserChars, "userpic" => $userPic];
     break;
