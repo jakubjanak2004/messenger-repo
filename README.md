@@ -11,7 +11,7 @@ For more information about the code used check the [Automatically generated docu
 
 - Hosted Application: [ZWA Server Link](https://zwa.toad.cz/~janakja5/Semestralka/login.php)
 - Automatically generated documentation: [ZWA Documentation Link](https://zwa.toad.cz/~janakja5/Semestralka/docs/api/)
-- 
+
 ## Creating an account
 
 When you dont have an account you are automatically redirected to the login.php page.
