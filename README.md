@@ -1,7 +1,8 @@
 # Messenger Application
 
 Here is a Repo for my Messenger application for a ZWA.
-Usage of the web application is explained on this page. 
+This page should be considered as the Product documentation,
+therefore usage of the web application is explained on this page. 
 
 Code is also saved in Semestralka folder in the box above.
 
