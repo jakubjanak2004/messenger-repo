@@ -20,7 +20,7 @@ By clicking on the purple button next to the messenger text you can switch betwe
 
 #### Signup Page
 
-![Signup page Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%204.38.05%E2%80%AFPM.png)
+![Signup page Image](Image Link)
 
 If you dont have an accout you need to go to the Sign Up page and create an account there
 - Username can repeat, somethig you would like to be called in the network
