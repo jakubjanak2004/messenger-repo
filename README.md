@@ -61,7 +61,7 @@ You can even delete message if it was created by you.
 
 #### Remove Message Page
 
-![Chats Page Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%205.32.06%E2%80%AFPM.png)
+![Chats Page Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%205.39.24%E2%80%AFPM.png)
 
 If message is clicked and it belongs to you, you are redirected to the remove messages page.
 
