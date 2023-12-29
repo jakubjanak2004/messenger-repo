@@ -11,6 +11,7 @@ For more information about the code used check the [Automatically generated docu
 # Important Links:
 
 - Hosted Application: [ZWA Server Link](https://zwa.toad.cz/~janakja5/Semestralka/login.php)
+- Programmer Documentation [Programmer Docs Link](https://github.com/jakubjanak2004/messenger-repo/blob/main/ProgrammerDocumentation.md)
 - Automatically generated documentation: [ZWA Documentation Link](https://zwa.toad.cz/~janakja5/Semestralka/docs/api/)
 
 # Creating an account
