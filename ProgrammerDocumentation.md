@@ -16,9 +16,10 @@ There are two classes used in here, the User class and Message class.
 
 This class represents a user and has atributes and mthods to validate user, create new user,...
 
-```php
-<?php
+Class User has 4 atributes that are all encpsulated and cannot be accessed, therefore are private,
+if you wanna change them you can do that thrue the constructor of a class.
 
+```php
 class User
 {
 
@@ -27,14 +28,6 @@ class User
     private string $imagesFolder = "img_db";
     private string $userPath = "";
 
-    /**
-     * Constructor of a class User.
-     * 
-     * If parameter is set it will override the default folder path.
-     * 
-     * @param string    $userFolder
-     * @param string    $imagesFolder
-     */
     function __construct(string $userFolder = Null, string $imagesFolder = Null)
     {
 
@@ -56,16 +49,11 @@ class User
         }
     }
 
-    /**
-     * Function to sign up a user.
-     * 
-     * @param string    $username
-     * @param string    $email
-     * @param string    $password
-     * @param string    $password2
-     * 
-     * @return string   $error
-     */
+```
+signUpUser is used for signing up the user, it returns an error string,
+if empty the signup was successful if not the error messages are displayed there.
+```php
+
     public function signUpUser(string $username, string $email, string $password, string $password2): string
     {
 
@@ -104,15 +92,9 @@ class User
 
         return $error;
     }
-
-    /**
-     * Function to log in a user.
-     * 
-     * @param string    $email
-     * @param string    $password
-     * 
-     * @return string   $error
-     */
+```
+logInUser is used to log in user with already creted username, if error occured it is returned thrue the $error variable.
+```php
     public function logInUser(string $email, string $password): string
     {
         $can_sign = true;
@@ -131,14 +113,10 @@ class User
 
         return $error;
     }
-
-    /**
-     * Function to return a user.
-     * 
-     * @param string    $email
-     * 
-     * @return array|bool   $value|False
-     */
+```
+returnUser is used when we wanna return a user with certain emal,
+if the suer is not founf false will be returned
+```php
     public function returnUser(string $email): array|bool
     {
         $json_data = $this->getAllUsers();
@@ -152,12 +130,9 @@ class User
 
         return False;
     }
-
-    /**
-     * Function to return all users in the databse.
-     * 
-     * @return array    $json_data
-     */
+```
+getAllUsers will return all users from the database in a form of a json
+```php
     public function getAllUsers(): array
     {
         if (file_exists($this->userPath)) {
@@ -173,15 +148,9 @@ class User
 
         return $json_data;
     }
-
-    /**
-     * Function to change username.
-     * 
-     * @param string    $email
-     * @param string    $newUsername
-     * 
-     * @return bool     True|False
-     */
+```
+changeUsername will change username of a user if exists
+```php
     public function changeUsername(string $email, string $newUsername): bool
     {
         $user = $this->returnUser($email);
@@ -204,17 +173,10 @@ class User
 
         return True;
     }
-
-    /**
-     * Function to change user Pic.
-     * 
-     * The filesize shouldn`t be bigger than 200KB -> 1.6m bits 
-     * 
-     * @param string    $email
-     * @param array     $profilePic
-     * 
-     * @return string    $error
-     */
+```
+changeUserPic will change pic of a user if exists,
+if not error is returned
+```php
     public function changeUserPic(string $email, array $profilePic): string
     {
         $user = $this->returnUser($email);
@@ -264,14 +226,10 @@ class User
 
         return $error;
     }
-
-    /**
-     * Function to get User Pic.
-     * 
-     * @param string    $email
-     * 
-     * @return string|bool   $oneUser|False
-     */
+```
+getUserPic will return user pic if the user with the email exists,
+if not false is returned
+```php
     public function getUserPic(string $email): string|bool
     {
         $allUsers = $this->getAllUsers();
@@ -287,12 +245,9 @@ class User
 
         return False;
     }
-
-    /**
-     * Function to save all users.
-     * 
-     * @param array    $users
-     */
+```
+saveAllUsers saves all users in the database folder in a form of a json encoded string
+```php
     public function saveAllUsers(array $users): void
     {
         file_put_contents($this->userPath, json_encode($users));
