@@ -4,13 +4,13 @@ Here is a Repo for my Messenger application for a class ZWA.
 This page should be considered as the Product documentation,
 therefore usage of the web application is explained on this page. 
 
-Code is also saved in Semestralka folder in the box above. 
+Code is also saved in Semestralka folder in the folder above. 
 
-For more information about the code used check the 
+More information about the code is here:
 - [Programmer documentation](https://github.com/jakubjanak2004/messenger-repo/blob/main/ProgrammerDocumentation.md) 
 - [Automatically generated documentation](https://zwa.toad.cz/~janakja5/Semestralka/docs/api/)
 
-# Important Links:
+## Important Links:
 
 - Hosted Application: [ZWA Server Link](https://zwa.toad.cz/~janakja5/Semestralka/login.php)
 - Programmer Documentation [Programmer Docs Link](https://github.com/jakubjanak2004/messenger-repo/blob/main/ProgrammerDocumentation.md)
