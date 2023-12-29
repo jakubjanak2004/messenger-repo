@@ -613,11 +613,14 @@ and the title of the page is stated here.
     <title>Chats</title>
 </head>
 ```
-In this block of code is the body section of the application,
-conatining all the data that the user is going to see in the browser.
+## HTML header
 
+From this pont the code displayed os the body part of the htl application.
 The main logic is processed in the controller and the only php logic is done thrue displaying variables,
 or thrue paging and logic that coulnt be moved to the controller section.
+
+The part just below is the code with the page header containing html,
+dislaying the username and the profile pic.
 ```php
 <body>
 
@@ -646,6 +649,8 @@ or thrue paging and logic that coulnt be moved to the controller section.
             </form>
             <ul id="chats_panel">
 ```
+## Users section
+
 User search panel is displayed here as well as paging is done in this code.
 
 If there are more than 10 users they are paged so they wont cover too much space. 
@@ -779,7 +784,9 @@ They are then displayed in the users section when the user can interact with the
             <section id="chat">
                 <ul>
 ```
-Here the messages are displayed to the user if another user is selected.
+## Messages section
+
+In this block the messages are displayed to the user if another user is selected.
 
 If user is selected the app will retrieve all the messages from the dtabse and sort them by time.
 
