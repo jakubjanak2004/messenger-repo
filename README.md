@@ -6,7 +6,9 @@ therefore usage of the web application is explained on this page.
 
 Code is also saved in Semestralka folder in the box above. 
 
-For more information about the code used check the [Automatically generated documentation](https://zwa.toad.cz/~janakja5/Semestralka/docs/api/)
+For more information about the code used check the 
+- [Programmer documentation](https://github.com/jakubjanak2004/messenger-repo/blob/main/ProgrammerDocumentation.md) 
+- [Automatically generated documentation](https://zwa.toad.cz/~janakja5/Semestralka/docs/api/)
 
 # Important Links:
 
@@ -118,5 +120,5 @@ You can change the following:
 - Profile Pic: must be a jpg, jpeg or png and cannot be bigger than 200KB
 - Sign Out: if you dont wannat to have your account opened anymore
 
-This page was a user documentation describing what and how things works from the user side.
+This page was a product/user documentation describing what and how things works from the user side.
 If you are interested in the programmer/code side of my application you can check the programmer documentation.
