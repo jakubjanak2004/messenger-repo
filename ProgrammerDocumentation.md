@@ -50,7 +50,8 @@ class User
     }
 
 ```
-signUpUser is used for signing up the user, it returns an error string,
+### signUpUser
+This metod is used for signing up the user, it returns an error string,
 if empty the signup was successful if not the error messages are displayed there.
 ```php
 
@@ -93,7 +94,8 @@ if empty the signup was successful if not the error messages are displayed there
         return $error;
     }
 ```
-logInUser is used to log in user with already creted username, if error occured it is returned thrue the $error variable.
+### logInUser
+this method is used to log in user with already creted username, if error occured it is returned thrue the $error variable.
 ```php
     public function logInUser(string $email, string $password): string
     {
@@ -114,7 +116,8 @@ logInUser is used to log in user with already creted username, if error occured 
         return $error;
     }
 ```
-returnUser is used when we wanna return a user with certain emal,
+### returnUser
+this method is used when we wanna return a user with certain emal,
 if the suer is not founf false will be returned
 ```php
     public function returnUser(string $email): array|bool
@@ -131,7 +134,8 @@ if the suer is not founf false will be returned
         return False;
     }
 ```
-getAllUsers will return all users from the database in a form of a json
+### getAllUsers
+this method will return all users from the database in a form of a json
 ```php
     public function getAllUsers(): array
     {
@@ -149,7 +153,8 @@ getAllUsers will return all users from the database in a form of a json
         return $json_data;
     }
 ```
-changeUsername will change username of a user if exists
+### changeUsername
+this method will change username of a user if exists
 ```php
     public function changeUsername(string $email, string $newUsername): bool
     {
@@ -174,7 +179,8 @@ changeUsername will change username of a user if exists
         return True;
     }
 ```
-changeUserPic will change pic of a user if exists,
+### changeUserPic
+this method will change pic of a user if exists,
 if not error is returned
 ```php
     public function changeUserPic(string $email, array $profilePic): string
@@ -227,7 +233,8 @@ if not error is returned
         return $error;
     }
 ```
-getUserPic will return user pic if the user with the email exists,
+### getUserPic
+this method will return user pic if the user with the email exists,
 if not false is returned
 ```php
     public function getUserPic(string $email): string|bool
@@ -246,7 +253,8 @@ if not false is returned
         return False;
     }
 ```
-saveAllUsers saves all users in the database folder in a form of a json encoded string
+### saveAllUsers
+this method saves all users in the database folder in a form of a json encoded string
 ```php
     public function saveAllUsers(array $users): void
     {
@@ -254,3 +262,140 @@ saveAllUsers saves all users in the database folder in a form of a json encoded 
     }
 }
 ```
+
+## Message
+
+Class Message is used when user is loggen in and wants to access a chat, wants t send message,...
+
+Class has 4 atributes, message folder, user folder and images folder can be changed thrue the constructor
+
+```php
+class Messages
+{
+
+    private string $messagesFolder = "json_db";
+    private string $messagesFile = "messages.json";
+    private string $messagesPath = "";
+    private null|User $user = NULL;
+
+    function __construct(string $messagesFolder = Null, string $userFolder = Null, string $imagesFolder = Null)
+    {
+
+        if ($messagesFolder) {
+            $this->messagesFolder = $messagesFolder;
+        }
+
+        if ($userFolder and $imagesFolder) {
+            $this->user = new User($userFolder, $imagesFolder);
+        } else {
+            $this->user = new User();
+        }
+
+        $this->messagesPath = $this->messagesFolder . "/" . $this->messagesFile;
+
+        if (!file_exists($this->messagesFolder)) {
+            mkdir($this->messagesFolder);
+        }
+    }
+```
+### send Message
+this method is used to send a message from user to user if the user s logged in and if the users exists
+```php
+    public function sendMessage(string $email, string $to_email, string $content): void
+    {
+
+        if (!$this->user->returnUser($to_email)) {
+            return;
+        }
+
+        if($email == $to_email){
+            return;
+        }
+
+        $allMessages = $this->getAllMessages();
+
+        $allMessages[$email][time()] = ["from" => $email, "to" => $to_email, "content" => $content];
+
+        file_put_contents($this->messagesPath, json_encode($allMessages));
+    }
+```
+### getAllMessagesU2U
+this method is used to get the chat between two users
+```php
+    public function getAllMessagesU2U(string $from_email, string $to_email): array
+    {
+        $messages = $this->getAllMessages();
+        $return_messages = [];
+
+        foreach ($messages as $email => $value) {
+            if ($email == $from_email) {
+                foreach ($value as $timestamp => $value2) {
+                    if ($value2['to'] == $to_email) {
+                        $return_messages[$email][$timestamp] = $value2;
+                    }
+                }
+            }
+
+            if ($email == $to_email) {
+                foreach ($value as $timestamp => $value2) {
+                    if ($value2['to'] == $from_email) {
+                        $return_messages[$email][$timestamp] = $value2;
+                    }
+                }
+            }
+        }
+
+        return $return_messages;
+    }
+```
+### getAllMessagesU2U
+this method is used to get all messages form the json folder databse specified by the path in the atribute messages path
+```php
+    public function getAllMessages(): array
+    {
+        if (file_exists($this->messagesPath)) {
+            $data = file_get_contents($this->messagesPath);
+            $json_data = json_decode($data, true);
+        } else {
+            $json_data = [];
+        }
+
+        if (!$json_data) {
+            $json_data = [];
+        }
+
+        return $json_data;
+    }
+```
+### getAllMessagesU2U
+this method is used to erase a certain image specified by the from and to email string variables and the timestamp
+```php
+    public function eraseMessage(string $from, string $to, string $timestamp): bool
+    {
+        if ($from != $_SESSION['email']) {
+            return False;
+        }
+
+        $messages = $this->getAllMessages();
+
+        foreach ($messages as $email => $value) {
+            if ($email == $from) {
+                foreach ($value as $timeS => $value2) {
+                    if ($value2['to'] == $to and $timestamp == $timeS) {
+                        unset($messages[$email][$timeS]);
+                    }
+                }
+            }
+        }
+
+        file_put_contents($this->messagesPath, json_encode($messages));
+        return true;
+    }
+}
+```
+
+# Controller
+
+Controller is on every public url location that the user can reach. It contains the logic for what to do next.
+Controller either redirects the user or loads all the important variables and then calls the view to display them to the user.
+Controller is also used to handle POST and GET requests.
