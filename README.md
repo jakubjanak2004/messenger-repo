@@ -23,7 +23,7 @@ When you dont have an account you are automatically redirected to the login.php 
 
 By clicking on the purple button next to the messenger text you can switch between Log In and Sign Up page.
 
-### Signup Page
+## Signup Page
 
 ![Signup page Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%205.31.55%E2%80%AFPM.png)
 
@@ -39,7 +39,7 @@ This are the individual inputs and their requirements:
 
 ![Passwords check Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%206.04.13%E2%80%AFPM.png)
 
-Password are always asynchronously checked against each other and when are not the same the input label changes background to red
+Password are always asynchronously checked against each other and when are not the same the input label changes background to red.
 
 When you create an account you are immediatelly redirected to the Chats page.
 
@@ -47,9 +47,12 @@ If there is an error with the signup process you will be warned with error messa
 
 ![Signup Error Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%206.04.30%E2%80%AFPM.png)
 
-Above is a immage of the signup form not being successfull as the user with the signu email already exists.
+Above is a immage of the signup form not being successfull as the user with the signup email already exists.
 
-### Login Page
+This is a common issue and is not checked by the asynchronous javascript,
+because user has to know if he/she used that email already.
+
+## Login Page
 
 ![Login page Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%205.31.48%E2%80%AFPM.png)
 
@@ -66,11 +69,15 @@ Here is a list of inputs with their criteria:
 If the loggin process is not succesfull you wil get information that username or password is wrong.
 We cannot state if one or the other is  wrong for security reasons. Please check the email and password you entered.
 
-If the loggin process succeeeded you will be redirected to the chats page.
+If the loggin process succeeeded you will be redirected to the chats page automatically.
+Then you can continue in using the application as logged user.
 
 # Using an logged acount
 
-### Chats page
+When you are logged in session is created in the server side of the application and while the session is valid,
+you are considered as logged user. After that period you will be redirected to the login page.
+
+## Chats page
 
 ![Chats Page Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%205.32.06%E2%80%AFPM.png)
 
@@ -87,7 +94,7 @@ If the user you are messaging to sends message the chat will automatically refes
 
 If a certain message belongs to you you can delete it by clicking on the message.
 
-### Remove Message Page
+## Remove Message Page
 
 ![Chats Page Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%205.39.24%E2%80%AFPM.png)
 
@@ -98,7 +105,7 @@ If message is clicked and it belongs to you, you are redirected to this page.
 Here you can decide if you want to delete the message selected, 
 after that you are immediatelly redirected back to the chats page.
 
-### Settings Page
+## Settings Page
 
 ![Chats Page Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%205.32.13%E2%80%AFPM.png)
 
