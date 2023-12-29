@@ -16,7 +16,7 @@ There are two classes used in here, the User class and Message class.
 
 This class represents a user and has atributes and mthods to validate user, create new user,...
 
-*** php
+```php
 <?php
 
 class User
@@ -298,3 +298,4 @@ class User
         file_put_contents($this->userPath, json_encode($users));
     }
 }
+```
