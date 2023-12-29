@@ -116,3 +116,6 @@ You can change the following:
 - Username
 - Profile Pic: must be a jpg, jpeg or png and cannot be bigger than 200KB
 - Sign Out: if you dont wannat to have your account opened anymore
+
+This page was a user documentation describing what and how things works from the user side.
+If you are interested in the programmer/code side of my application you can check the programmer documentation.
