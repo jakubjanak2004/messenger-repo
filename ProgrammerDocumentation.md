@@ -3,9 +3,9 @@
 This is a docmentation for programmer showing the code structure as well as agorthyhms used in the Messenger application.
 
 This app is created with respect to MVC framework, therefore the documentation will follow the same pattern of:
-- Model
-- View
-- Controller
+- Model: Database Communication management
+- View: Viewing the data
+- Controller: Controlling the user interaction with the app
 
 # Model
 
@@ -18,6 +18,12 @@ This class represents a user and has atributes and mthods to validate user, crea
 
 Class User has 4 atributes that are all encpsulated and cannot be accessed, therefore are private,
 if you wanna change them you can do that thrue the constructor of a class.
+
+Attributes:
+- $userFolder: string the folder in which the databse is stored
+- $userFile: string the filename in which the data is stored
+- $imagesFolder: string name name of the images folder in which the images data is stored
+- $userPath: string the path of the user file which is being constructed in the constructor
 
 ```php
 class User
@@ -51,8 +57,17 @@ class User
 
 ```
 ### signUpUser
+
 This metod is used for signing up the user, it returns an error string,
 if empty the signup was successful if not the error messages are displayed there.
+
+Parameters:
+- $username: string, username of the user
+- $email: string email of the user
+- $ password: string password of the user
+- $password2: string this should be same os the first password
+
+The method returns $error string
 ```php
 
     public function signUpUser(string $username, string $email, string $password, string $password2): string
@@ -95,7 +110,15 @@ if empty the signup was successful if not the error messages are displayed there
     }
 ```
 ### logInUser
-this method is used to log in user with already creted username, if error occured it is returned thrue the $error variable.
+
+this method is used to log in user with already creted username, 
+if error occured it is returned thrue the $error variable.
+
+Parameters:
+- $email: string email of the user
+- $password: string password of the user
+
+The method returns $error string.
 ```php
     public function logInUser(string $email, string $password): string
     {
@@ -117,8 +140,15 @@ this method is used to log in user with already creted username, if error occure
     }
 ```
 ### returnUser
+
 this method is used when we wanna return a user with certain emal,
-if the suer is not founf false will be returned
+if the suer is not founf false will be returned.
+
+Parameters: 
+- $email: string email of a user
+
+The method returns array with information about the user,
+or the boolean of false if the user is not found.
 ```php
     public function returnUser(string $email): array|bool
     {
@@ -135,7 +165,12 @@ if the suer is not founf false will be returned
     }
 ```
 ### getAllUsers
-this method will return all users from the database in a form of a json
+
+this method will return all users from the database in a form of a json.
+
+There are no parameters in this function.
+
+It returns all users from the databsse folder in form of an php assoc array.
 ```php
     public function getAllUsers(): array
     {
@@ -154,7 +189,14 @@ this method will return all users from the database in a form of a json
     }
 ```
 ### changeUsername
-this method will change username of a user if exists
+
+this method will change username of a user if exists.
+
+Parameters:
+- $email: string email of the user
+- $newUsername: string new username that will replace the old one
+
+The method retuns a boolean of true if succeeded.
 ```php
     public function changeUsername(string $email, string $newUsername): bool
     {
@@ -180,8 +222,15 @@ this method will change username of a user if exists
     }
 ```
 ### changeUserPic
+
 this method will change pic of a user if exists,
-if not error is returned
+if not error is returned.
+
+Parameters:
+- $email: string email of the user
+- $profilePic: array with the image sent by the post request
+
+The method returns $error string.
 ```php
     public function changeUserPic(string $email, array $profilePic): string
     {
@@ -234,8 +283,14 @@ if not error is returned
     }
 ```
 ### getUserPic
+
 this method will return user pic if the user with the email exists,
-if not false is returned
+if not false is returned.
+
+Parameters: 
+- $email: string email of the user
+
+The method returns the pic path or false boolean
 ```php
     public function getUserPic(string $email): string|bool
     {
@@ -254,7 +309,13 @@ if not false is returned
     }
 ```
 ### saveAllUsers
-this method saves all users in the database folder in a form of a json encoded string
+
+this method saves all users in the database folder in a form of a json encoded string.
+
+Parameters:
+- $users: array of users to be saved into the database
+
+The method does not return anything.
 ```php
     public function saveAllUsers(array $users): void
     {
@@ -267,7 +328,13 @@ this method saves all users in the database folder in a form of a json encoded s
 
 Class Message is used when user is loggen in and wants to access a chat, wants t send message,...
 
-Class has 4 atributes, message folder, user folder and images folder can be changed thrue the constructor
+Class has 4 atributes, message folder, user folder and images folder can be changed thrue the constructor.
+
+Attributes:
+- $messagesFolder: string the folder of the user database
+- $messagesFile: string name of the messsages data file
+- $messagesPath: string the path of the folder constructed in the constructor
+- $user: user object or null of it is not created
 
 ```php
 class Messages
@@ -299,7 +366,15 @@ class Messages
     }
 ```
 ### send Message
-this method is used to send a message from user to user if the user s logged in and if the users exists
+
+this method is used to send a message from user to user if the user s logged in and if the users exists.
+
+Parameters:
+- $email: string email of the user
+- $to_email: string name of the user to send message to
+- $content: string content of the message
+
+The method does not return anything.
 ```php
     public function sendMessage(string $email, string $to_email, string $content): void
     {
@@ -320,7 +395,14 @@ this method is used to send a message from user to user if the user s logged in 
     }
 ```
 ### getAllMessagesU2U
-this method is used to get the chat between two users
+
+this method is used to get the chat between two users.
+
+Parameters: 
+- $from_email: string the email of the user looking at his/hers chat
+- $to_email: string name of the user chatting to
+
+The method returns array of messages.
 ```php
     public function getAllMessagesU2U(string $from_email, string $to_email): array
     {
@@ -349,7 +431,12 @@ this method is used to get the chat between two users
     }
 ```
 ### getAllMessagesU2U
-this method is used to get all messages form the json folder databse specified by the path in the atribute messages path
+
+this method is used to get all messages form the json folder databse specified by the path in the atribute messages path.
+
+There are not paramteres in this method.
+
+This method returns all messages from the database.
 ```php
     public function getAllMessages(): array
     {
@@ -368,7 +455,15 @@ this method is used to get all messages form the json folder databse specified b
     }
 ```
 ### getAllMessagesU2U
-this method is used to erase a certain image specified by the from and to email string variables and the timestamp
+
+this method is used to erase a certain image specified by the from and to email string variables and the timestamp.
+
+Parameters: 
+- $from: string email from the message is
+- $to: string email of the user the message is to
+- $timestamp: timestamp in a form of a string to locate the message selected
+
+The method returns boolean.
 ```php
     public function eraseMessage(string $from, string $to, string $timestamp): bool
     {
@@ -518,8 +613,11 @@ and the title of the page is stated here.
     <title>Chats</title>
 </head>
 ```
-Here is the body section of the application,
-conatining all the data that the user is going to see in the browser
+In this block of code is the body section of the application,
+conatining all the data that the user is going to see in the browser.
+
+The main logic is processed in the controller and the only php logic is done thrue displaying variables,
+or thrue paging and logic that coulnt be moved to the controller section.
 ```php
 <body>
 
@@ -548,8 +646,15 @@ conatining all the data that the user is going to see in the browser
             </form>
             <ul id="chats_panel">
 ```
-User search panel is displayed here as well as paging is done in this code,
-if there are more than 10 users they are paged so they wont cover too much space.
+User search panel is displayed here as well as paging is done in this code.
+
+If there are more than 10 users they are paged so they wont cover too much space. 
+However the php paging is disabled thrue thrue the js,
+because the js pagin is asynchronous.
+
+Users are selected from the database and then loopedthrue.
+
+They are then displayed in the users section when the user can interact with them.
 ```php
                 <?php
 
@@ -675,6 +780,15 @@ if there are more than 10 users they are paged so they wont cover too much space
                 <ul>
 ```
 Here the messages are displayed to the user if another user is selected.
+
+If user is selected the app will retrieve all the messages from the dtabse and sort them by time.
+
+After that they are displayed in the chat page so that the user can look at the messages or
+delete some of his message if he does not like it.
+
+He can also send some message if user is selected and it will get send.
+
+The main php code is however disabled by the javascript to do the messaging asynchronously.
 ```php
                     <?php
 
