@@ -1,16 +1,25 @@
 # Programmer Documentation
 
-This is a docmentation for programmer showing the code structure as well as agorthyhms used in the Messenger application.
+This is a docmentation for programmer showing the code structure of the Messenger aplication.
+Algorhythms and code structure is showed here as well as desribed.
+
+If you want to see more about the code you can check the actual code in the Semetralka folder in the github,
+or the automatically created documantation in the Semestralka/docs folder.
 
 This app is created with respect to MVC framework, therefore the documentation will follow the same pattern of:
 - Model: Database Communication management
 - View: Viewing the data
 - Controller: Controlling the user interaction with the app
+MVC framework is useful for organisation as well as scaling of the application.
 
 # Model
 
 this part of the code is managng the data and communicates with the database.
 There are two classes used in here, the User class and Message class.
+
+It is structured like this for safety as well as organisation of the app.
+Safety is done thrue encapsulatio of the dangerous atributes.
+Other parts of application are not accessing the vulnerable data therefore this is the only way to do that.
 
 ## User
 
@@ -499,9 +508,13 @@ Individual Controllers are already described in a automatically generated docume
 
 ## Chats Controller
 
-Session is stated for state holding and then User and Messages are both included,
-these are the models described above and are used to hadle user and chatting needs
+This is the chats controller, page that controlls the logic of the chats page.
+It is the only controller that is gong to described in the programmer documentation.
 
+### Session and Includes
+
+Session is stated for state holding and then User and Messages are both included,
+these are the models described above and are used to hadle user and chatting needs.
 ```php
 session_start();
 
@@ -509,8 +522,10 @@ include "Model/User.php";
 include "Model/Messages.php";
 
 ```
+### Main Variables
+
 Main variables are inicialised here,
-these are the most important variables containing information for the user or the object instances
+these are the most important variables containing information for the user or the object instances.
 ```php
 $user = new User();
 $messages = new Messages();
@@ -519,8 +534,10 @@ $email = "";
 $profilePic = "Default_IMG/person.png";
 $allUsers = $user->getAllUsers();
 ```
+### Messaged User Variables
+
 These are the variables containing the information about the user that is being messaged,
-they can be empty is the messaged user is not selected
+they can be empty is the messaged user is not selected.
 ```php
 $messagedUserName = "";
 $messagedUserPic = "Default_IMG/person.png";
@@ -528,14 +545,17 @@ $messagedUserEmail = "";
 $messagesArr = [];
 $searchFilter = "";
 ```
-These are the tokens used to secure the resubmitting problem
+### Tokens
+
+These are the tokens used to secure the resubmitting problem.
 ```php
 $message_token = "";
 $search_token = "";
-
 ```
+### Log In check
+
 if user is not logged in he/she is reidrected to the index page,
-to secure that user has to be logged to access chats page
+to secure that user has to be logged to access chats page.
 ```php
 if (isset($_SESSION['email']) and isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
@@ -543,15 +563,18 @@ if (isset($_SESSION['email']) and isset($_SESSION['username'])) {
 } else {
     header("Location: index.php");
 }
-
 ```
-Asigning the messaged User Email if exists in the GET request
+### User Messaged handling
+
+Asigning the messaged User Email if exists in the GET request.
 ```php
 if (isset($_GET['user_messaged'])) {
     $messagedUserEmail = $_GET['user_messaged'];
 }
 ```
-If message was sent by the post request it is handled by the messsages object and the new message is saves as well as displayed on the chats page
+### Messae handling
+
+If message was sent by the post request it is handled by the messsages object and the new message is saves as well as displayed on the chats page.
 ```php
 if (isset($_POST['message']) and isset($_GET['user_messaged']) and isset($_POST['message_token']) and isset($_SESSION['message_token'])) {
 
@@ -560,6 +583,8 @@ if (isset($_POST['message']) and isset($_GET['user_messaged']) and isset($_POST[
     }
 }
 ```
+### User Search handling
+
 If the user is searching for another user it is handled here
 ```php
 if (isset($_POST['user_search']) and isset($_POST['search_token']) and isset($_SESSION['search_token'])) {
@@ -569,6 +594,8 @@ if (isset($_POST['user_search']) and isset($_POST['search_token']) and isset($_S
     }
 }
 ```
+### Token handling
+
 Here we ar assigning new values to the tokens,
 this whole process is done to secure the resubmitting
 ```php
@@ -585,6 +612,8 @@ if ($user->getUserPic($email)) {
 $messagesArr = $messages->getAllMessagesU2U($email, $messagedUserEmail);
 
 ```
+### Including the View
+
 Here we include the chats view that displays all the information to the user in a form of html
 ```php
 include "view/chatsView.php";
@@ -594,8 +623,12 @@ include "view/chatsView.php";
 
 View is a part of the MVC framework where the data is displayed to the user by HTML styled by the CSS.
 
-I am going to do the vew documentation in the same fashion as done in the Controller section by documenting the most complicated page,
+## Chats View
+
+I am going to do the view documentation in the same fashion as done in the Controller section by documenting the most complicated page,
 therefore chats view and not all of the view ages as I would be repeating a lot of times.
+
+### HTML head section
 
 HTML header is here with all the important meta tags.
 CSS and JS is also linked here,
@@ -613,7 +646,7 @@ and the title of the page is stated here.
     <title>Chats</title>
 </head>
 ```
-## HTML header
+### HTML header
 
 From this pont the code displayed os the body part of the htl application.
 The main logic is processed in the controller and the only php logic is done thrue displaying variables,
@@ -649,7 +682,7 @@ dislaying the username and the profile pic.
             </form>
             <ul id="chats_panel">
 ```
-## Users section
+### Users section
 
 User search panel is displayed here as well as paging is done in this code.
 
@@ -784,7 +817,7 @@ They are then displayed in the users section when the user can interact with the
             <section id="chat">
                 <ul>
 ```
-## Messages section
+### Messages section
 
 In this block the messages are displayed to the user if another user is selected.
 
