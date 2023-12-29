@@ -399,3 +399,105 @@ this method is used to erase a certain image specified by the from and to email 
 Controller is on every public url location that the user can reach. It contains the logic for what to do next.
 Controller either redirects the user or loads all the important variables and then calls the view to display them to the user.
 Controller is also used to handle POST and GET requests.
+
+Individual Controllers are already described in a automatically generated documentation I am going to document only one page here and that is the chats Controlelr as the functionality of others are very simmilar and this is the most complicated one.
+
+## Chats Controller
+
+Session is stated for state holding and then User and Messages are both included,
+these are the models described above and are used to hadle user and chatting needs
+
+```php
+session_start();
+
+include "Model/User.php";
+include "Model/Messages.php";
+
+```
+Main variables are inicialised here,
+these are the most important variables containing information for the user or the object instances
+```php
+$user = new User();
+$messages = new Messages();
+$username = "";
+$email = "";
+$profilePic = "Default_IMG/person.png";
+$allUsers = $user->getAllUsers();
+```
+These are the variables containing the information about the user that is being messaged,
+they can be empty is the messaged user is not selected
+```php
+$messagedUserName = "";
+$messagedUserPic = "Default_IMG/person.png";
+$messagedUserEmail = "";
+$messagesArr = [];
+$searchFilter = "";
+```
+These are the tokens used to secure the resubmitting problem
+```php
+$message_token = "";
+$search_token = "";
+
+```
+if user is not logged in he/she is reidrected to the index page,
+to secure that user has to be logged to access chats page
+```php
+if (isset($_SESSION['email']) and isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+    $email = $_SESSION['email'];
+} else {
+    header("Location: index.php");
+}
+
+```
+Asigning the messaged User Email if exists in the GET request
+```php
+if (isset($_GET['user_messaged'])) {
+    $messagedUserEmail = $_GET['user_messaged'];
+}
+```
+If message was sent by the post request it is handled by the messsages object and the new message is saves as well as displayed on the chats page
+```php
+if (isset($_POST['message']) and isset($_GET['user_messaged']) and isset($_POST['message_token']) and isset($_SESSION['message_token'])) {
+
+    if ($_POST['message_token'] == $_SESSION['message_token']) {
+        $messages->sendMessage($email, $messagedUserEmail, $_POST['message']);
+    }
+}
+```
+If the user is searching for another user it is handled here
+```php
+if (isset($_POST['user_search']) and isset($_POST['search_token']) and isset($_SESSION['search_token'])) {
+
+    if ($_POST['search_token'] == $_SESSION['search_token']) {
+        $searchFilter = $_POST['user_search'];
+    }
+}
+```
+Here we ar assigning new values to the tokens,
+this whole process is done to secure the resubmitting
+```php
+$message_token = hash("sha1", uniqid());
+$_SESSION['message_token'] = $message_token;
+
+$search_token = hash("sha1", uniqid());
+$_SESSION['search_token'] = $search_token;
+
+if ($user->getUserPic($email)) {
+    $profilePic = $user->getUserPic($email);
+}
+
+$messagesArr = $messages->getAllMessagesU2U($email, $messagedUserEmail);
+
+```
+Here we include the chats view that displays all the information to the user in a form of html
+```php
+include "view/chatsView.php";
+```
+
+# View
+
+View is a part of the MVC framework where the data is displayed to the user by HTML styled by the CSS.
+
+I am going to do the vew documentation in the same fashion as done in the Controller section by documenting the most complicated page,
+therefore chats view and not all of the view ages as I would be repeating a lot of times.
