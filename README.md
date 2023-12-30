@@ -4,7 +4,7 @@ Here is a Repo for my Messenger application for a class ZWA.
 This page should be considered as the Product documentation,
 therefore usage of the web application is explained on this page. 
 
-Code is also saved in Semestralka folder in the folder above. 
+The code is also saved in the Semestralka folder in the folder above. 
 
 More information about the code is here:
 - [Programmer documentation](https://github.com/jakubjanak2004/messenger-repo/blob/main/ProgrammerDocumentation.md) 
@@ -18,11 +18,11 @@ More information about the code is here:
 
 # Creating an account
 
-You cannot use this application without having a account and being logged in. 
-If you are new to this messenger app you probably dont have an account and therefore you should create one.  
-The process of creating account is described below.
+You cannot use this application without having an account and being logged in. 
+If you are new to this messenger app you probably don't have an account and therefore you should create one.  
+The process of creating an account is described below.
 
-When you dont have an account you are automatically redirected to the login.php page.
+When you don't have an account you are automatically redirected to the login.php page.
 
 By clicking on the purple button next to the messenger text you can switch between Log In and Sign Up page.
 
@@ -30,37 +30,37 @@ By clicking on the purple button next to the messenger text you can switch betwe
 
 ![Signup page Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%205.31.55%E2%80%AFPM.png)
 
-Signup page is used for creating new accounts, therefore not for accessing already created ones, login page is for that purpose.
+The signup page is used for creating new accounts, therefore not for accessing already created ones, the login page is for that purpose.
 
-In the signup page you have a form with 4 inputs. You need to fill all of them and they need to satisfy certain conditions.
+On the signup page, you have a form with 4 inputs. You need to fill all of them and they need to satisfy certain conditions.
 
-This are the individual inputs and their requirements:
-- Username can repeat, somethig you would like to be called in the network
-- email cannot repeat and the signup prcess will fail if it does
-- password has to be at least 8 characters long
-- password repeat and password has to be the same, checked by the JS and server side logic
+These are the individual inputs and their requirements:
+- Username can repeat, something you would like to be called in the network
+- email cannot be repeated and the signup process will fail if it does
+- the password has to be at least 8 characters long
+- password repeat and password has to be the same, checked by the JS and server-side logic
 
 ![Passwords check Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%206.04.13%E2%80%AFPM.png)
 
-Password are always asynchronously checked against each other and when are not the same the input label changes background to red.
+Passwords are always asynchronously checked against each other and when are not the same the input label changes background to red.
 
-When you create an account you are immediatelly redirected to the Chats page.
+When you create an account you are immediately redirected to the Chats page.
 
 If there is an error with the signup process you will be warned with error messages just below the form.
 
 ![Signup Error Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%206.04.30%E2%80%AFPM.png)
 
-Above is a immage of the signup form not being successfull as the user with the signup email already exists.
+Above is an image of the signup form not being successful as the user with the signup email already exists.
 
 This is a common issue and is not checked by the asynchronous javascript,
-because user has to know if he/she used that email already.
+because a user has to know if he/she used that email already.
 
 ## Login Page
 
 ![Login page Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%205.31.48%E2%80%AFPM.png)
 
-If you created an account thrue the signup page in the past and wanna access it,
-you can do that thrue the login page.
+If you created an account through the signup page in the past and wanna access it,
+you can do that through the login page.
 Logging has to be done when the session expires and therefore needs to be reset.
 
 Here is a list of inputs with their criteria:
@@ -69,31 +69,31 @@ Here is a list of inputs with their criteria:
 
 ![Login Page Error Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%206.03.52%E2%80%AFPM.png)
 
-If the loggin process is not succesfull you wil get information that username or password is wrong.
-We cannot state if one or the other is  wrong for security reasons. Please check the email and password you entered.
+If the login process is not successful you will get information that username or password is wrong.
+We cannot state if one or the other is wrong for security reasons. Please check the email and password you entered.
 
-If the loggin process succeeeded you will be redirected to the chats page automatically.
-Then you can continue in using the application as logged user.
+If the logging process succeeds you will be redirected to the chats page automatically.
+Then you can continue using the application as a logged user.
 
-# Using an logged acount
+# Using a logged account
 
-When you are logged in session is created in the server side of the application and while the session is valid,
-you are considered as logged user. After that period you will be redirected to the login page.
+When you are logged in session is created on the server side of the application and while the session is valid,
+you are considered a logged user. After that period you will be redirected to the login page.
 
 ## Chats page
 
 ![Chats Page Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%205.32.06%E2%80%AFPM.png)
 
-In the chats page you can see all the users that use the messener application,
-if there is more than 10 user paging is being applied.
+On the chats page, you can see all the users that use the messenger application,
+if there are more than 10 users paging is being applied.
 
-If you cannot see the user you wanna find and there are lost of them,
-zou can use the search bar and look for certain user. If found all users with searched phrase will appear on the chats page.
+If you cannot see the users you wanna find and there are lots of them,
+you can use the search bar and look for certain users. If found all users with searched phrases will appear on the chats page.
 
-When you want to send message you have to select the user orherwise the message wont be sent.
-After that you can write the message and send, it will immediatelly appear in the chat section.
+When you want to send the message you have to select the user otherwise the message won't be sent.
+After that you can write the message and send it, it will immediately appear in the chat section.
 
-If the user you are messaging to sends message the chat will automatically refesh.
+If the user you are messaging to sends a message the chat will automatically refresh.
 
 If a certain message belongs to you you can delete it by clicking on the message.
 
@@ -101,24 +101,24 @@ If a certain message belongs to you you can delete it by clicking on the message
 
 ![Chats Page Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%205.39.24%E2%80%AFPM.png)
 
-This page is created for deleting messages created by certain user.
+This page is created for deleting messages created by certain users.
 
-If message is clicked and it belongs to you, you are redirected to this page.
+If the message is clicked and it belongs to you, you are redirected to this page.
 
 Here you can decide if you want to delete the message selected, 
-after that you are immediatelly redirected back to the chats page.
+after that, you are immediately redirected back to the chats page.
 
 ## Settings Page
 
 ![Chats Page Image](https://github.com/jakubjanak2004/messenger-repo/blob/main/Semestralka/images/Sn%C3%ADmka%20obrazovky%202023-12-28%20o%205.32.13%E2%80%AFPM.png)
 
-If you are logged in and wanna change username, profilepic or wanna sign out of the messenger application,
-you can do it in here in settings page.
+If you are logged in and wanna change your username, or profile pic or wanna sign out of the messenger application,
+you can do it here on the settings page.
 
 You can change the following:
 - Username
-- Profile Pic: must be a jpg, jpeg or png and cannot be bigger than 200KB
-- Sign Out: if you dont wannat to have your account opened anymore
+- Profile Pic: must be a jpg, jpeg, or png and cannot be bigger than 200KB
+- Sign Out: if you don't want to have your account opened anymore
 
-This page was a product/user documentation describing what and how things works from the user side.
+This page was a product/user documentation describing what and how things work from the user side.
 If you are interested in the programmer/code side of my application you can check the programmer documentation.
